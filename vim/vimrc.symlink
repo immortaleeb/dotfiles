@@ -1,0 +1,78 @@
+" This must be first, because it changes other options as side effect
+set nocompatible
+filetype off
+
+""" Install plugins
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Solarized colors
+Plugin 'altercation/vim-colors-solarized'
+" CtrlP
+Plugin 'kien/ctrlp.vim'
+" Supertab
+Plugin 'ervandew/supertab'
+" NerdTree
+Plugin 'scrooloose/nerdtree'
+" Comment plugin
+Plugin 'vim-scripts/tComment'
+" Highlight trailing whitespace
+Plugin 'bronson/vim-trailing-whitespace'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+""" Plugin settings
+" Use ag instead of grep
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+" Toggle nerdtree shortcut
+map <C-n> :NERDTreeToggle<cr>
+
+" Remove trailing whitespace on save
+autocmd BufWritePre * FixWhitespace
+
+""" Common settings
+" Some basic settings
+syntax on
+set expandtab
+set tabstop=2
+set shiftwidth=2
+
+" Colors
+set background=dark
+colorscheme solarized
+
+" highlight search results
+set hlsearch
+
+" enable line numbers
+set number
+
+" Show commands while being typed
+set showcmd
+
+" Syntax highlight JSON
+autocmd BufNewFile,BufRead *.json set ft=javascript
+
+" Syntax highlight *.sparql files
+autocmd BufNewFile,BufRead *.sparql set ft=sparql
+
+" Set Python tabs to length 4
+autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4

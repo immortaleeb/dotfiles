@@ -1,0 +1,75 @@
+#!/bin/sh
+
+# 
+# Finds all *.symlink files in the root of the subdirectories
+#  of this directory and symlinks them in your home directory.
+#
+
+ROOT_DIR=$(pwd)
+BACKUP_DIR="$ROOT_DIR/backups"
+mkdir -p "$BACKUP_DIR"
+
+info() {
+  printf "\033[0;34m$1\033[0m"
+}
+
+warning() {
+  printf "\033[1;31m$1\033[0m"
+}
+
+error() {
+  printf "\033[0;31m$1\033[0m"
+}
+
+backup_file() {
+  file="$1"
+  backup_file="$BACKUP_DIR/$(basename $file)"
+  mv "$file" "$backup_file"
+}
+
+link_file() {
+  src="$1"
+  dest="$2"
+
+  do_link=0
+  if [ -f $dest ]; then
+    warning "File $dest already exists, do you want to overwrite it? (y/n) "
+    read -n 1 answer
+    echo ''
+
+    if [ $answer == "y" ]; then
+      if backup_file "$dest"; then
+        echo "Backed up $dest to $BACKUP_DIR"
+        do_link=1
+      else
+        error "Failed to backup $dest to $BACKUP_DIR, aborting\n"
+        exit 1
+      fi
+    else
+      echo "Skipped linking $src"
+    fi
+  else
+    do_link=1
+  fi
+
+  if [ $do_link -eq 1 ]; then
+    if ln -s $src $dest; then
+      echo "Linked $src -> $dest"
+    else
+      error "Failed to link $src -> $dest, aborting\n"
+      exit 1
+    fi
+  fi
+}
+
+link_dotfiles() {
+  for file in $(find -H "$ROOT_DIR" -name '*.symlink' -maxdepth 2); do
+    src="$file"
+    dest="$HOME/.$(basename ${src%.*})"
+    link_file $src $dest
+  done
+}
+
+# Link files
+info "Linking dotfiles...\n"
+link_dotfiles

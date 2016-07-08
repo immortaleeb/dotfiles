@@ -9,3 +9,6 @@ alias ls='ls -GF'
 if [ "$(uname -s)" = "Darwin" ]; then # Mac
   source ~/.bashrc.mac
 fi
+
+export NVM_DIR="/Users/enver/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

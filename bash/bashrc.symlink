@@ -4,6 +4,7 @@ export CLICOLOR=1
 
 # Aliases
 alias ls='ls -GF'
+alias sublime='open -a Sublime\ Text'
 
 # Linux/Mac specific stuff
 if [ "$(uname -s)" = "Darwin" ]; then # Mac

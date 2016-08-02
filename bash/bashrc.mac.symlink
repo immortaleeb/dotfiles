@@ -8,3 +8,5 @@ alias hibernate='sudo pmset -a hibernatemode 25'
 alias regularsleep='sudo pmset -a hibernatemode 0'
 alias safesleep='sudo pmset -a hibernatemode 3'
 alias smartsleep='sudo pmset -a hibernatemode 2'
+
+alias mate='open -a TextMate'

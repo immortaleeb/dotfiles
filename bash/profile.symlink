@@ -5,4 +5,9 @@ if type pyenv 2> /dev/null >&2; then
   PATH=~/.pyenv/shims:$PATH
 fi
 
+# Linux/Mac specific stuff
+if [ "$(uname -s)" = "Darwin" ]; then # Mac
+  source ~/.profile.mac
+fi
+
 export PATH

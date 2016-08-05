@@ -10,3 +10,5 @@
 [user]
 	name = immortaleeb
 	email = immortaleeb@gmail.com
+[merge]
+  tool = meld

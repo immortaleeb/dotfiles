@@ -8,4 +8,16 @@
 		<autogen>__KeyToKey__ KeyCode::OPTION_R, KeyCode::COMMAND_R</autogen>
 		<autogen>__KeyToKey__ KeyCode::PC_APPLICATION, KeyCode::OPTION_R</autogen>
 	</item>
+	<item>
+		<name>Replace clear by num lock toggle</name>
+		<identifier>private.external.replaceclearwithnumlock</identifier>
+		<autogen>__KeyToKey__ KeyCode::KEYPAD_CLEAR, KeyCode::VK_IOHIKEYBOARD_TOGGLE_NUMLOCK</autogen>
+	</item>
+	<item>
+		<name>Make numpad operators functional again</name>
+			<identifier>private.external.functionalnumpadoperators</identifier>
+			<autogen>__KeyToKey__ KeyCode::PC_PRINTSCREEN, KeyCode::KEYPAD_SLASH</autogen>
+			<autogen>__KeyToKey__ KeyCode::PC_SCROLLLOCK, KeyCode::KEYPAD_MULTIPLY</autogen>
+			<autogen>__KeyToKey__ KeyCode::PC_PAUSE, KeyCode::KEYPAD_MINUS</autogen>
+		</name>
 </root>

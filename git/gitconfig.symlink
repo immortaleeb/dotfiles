@@ -12,3 +12,4 @@
 	email = immortaleeb@gmail.com
 [merge]
   tool = meld
+  ff = no

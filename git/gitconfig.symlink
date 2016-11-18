@@ -13,3 +13,5 @@
 [merge]
   tool = meld
   ff = no
+[rerere]
+	enabled = true

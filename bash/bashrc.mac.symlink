@@ -11,3 +11,4 @@ alias smartsleep='sudo pmset -a hibernatemode 2'
 
 alias mate='open -a TextMate'
 alias meld='open -W -a Meld'
+alias code='open -a "Visual Studio Code"'

@@ -10,4 +10,4 @@ alias safesleep='sudo pmset -a hibernatemode 3'
 alias smartsleep='sudo pmset -a hibernatemode 2'
 
 alias mate='open -a TextMate'
-alias meld='open -a Meld'
+alias meld='open -W -a Meld'

@@ -13,6 +13,8 @@
   rc = rebase --continue
   ra = rebase --abort
   cp = cherry-pick
+  caa = commit -a --amend
+  pf = push -f
 [user]
 	name = immortaleeb
 	email = immortaleeb@gmail.com

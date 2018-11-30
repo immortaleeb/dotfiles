@@ -13,6 +13,8 @@
   rc = rebase --continue
   ra = rebase --abort
   cp = cherry-pick
+  cpc = cherry-pick --continue
+  cpa = cherry-pick --abort
   caa = commit -a --amend
   pf = push -f
 [user]

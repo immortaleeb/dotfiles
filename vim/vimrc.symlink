@@ -13,7 +13,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Solarized colors
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 " CtrlP
 Plugin 'kien/ctrlp.vim'
 " Supertab
@@ -57,7 +57,7 @@ set shiftwidth=2
 
 " Colors
 set background=dark
-colorscheme solarized
+colorscheme Tomorrow-Night
 
 " highlight search results
 set hlsearch

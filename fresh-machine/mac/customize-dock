@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+echo "> Installing dockutil..."
+brew install dockutil
+
+echo "> Removing all dock items..."
+dockutil --remove all
+
+echo "> Adding new items..."
+dockutil --add /Applications/Vivaldi.app
+dockutil --add /Applications/iTerm.app
+dockutil --add "/Applications/IntelliJ IDEA CE.app"
+dockutil --add /Applications/KeePassXC.app
+dockutil --add /Applications/Rocket.Chat.app
+dockutil --add /Applications/Mailspring.app
+dockutil --add "/Applications/Azure Data Studio.app"
+dockutil --add "/Application/Sublime Text.app"
+dockutil --add /Applications/Fork.app
+dockutil --add /Applications
+
+echo "> Manual actions"
+echo " * Turn hiding on (cmd + alt + D)"
+echo " * Disable _show recent applications in dock"
+

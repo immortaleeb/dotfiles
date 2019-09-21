@@ -1,0 +1,17 @@
+#!/usr/bin/env
+
+# Install homebrew
+echo "# Installing homebrew"
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# Install apps
+echo "# Install applications..."
+./install-apps
+
+# Configuration
+echo "# Configuration..."
+echo "## MacOS Dock"
+./customize-dock
+
+# Manual stuff
+cat ./TODO_MANUAL.md

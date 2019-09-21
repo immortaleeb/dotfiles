@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# General
+brew cask install vivaldi
+brew cask install spectacle
+brew cask install flux
+brew cask install flycut
+
+# Office Tools
+brew cask install mailspring
+brew cask install joplin
+
+# Dev Tools
+brew cask install docker
+brew cask install iterm2
+brew cask install sublime-text
+brew cask install fork
+brew cask install intellij-idea-ce
+brew cask install azure-data-studio
+brew cask install rocket-chat
+brew cask install tunnelblick
+
+# Secrets
+brew cask install keepassxc
+

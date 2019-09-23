@@ -14,7 +14,7 @@ dockutil --add /Applications/KeePassXC.app
 dockutil --add /Applications/Rocket.Chat.app
 dockutil --add /Applications/Mailspring.app
 dockutil --add "/Applications/Azure Data Studio.app"
-dockutil --add "/Application/Sublime Text.app"
+dockutil --add "/Applications/Sublime Text.app"
 dockutil --add /Applications/Fork.app
 dockutil --add /Applications
 

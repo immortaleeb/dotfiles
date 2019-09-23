@@ -4,6 +4,10 @@
 echo "# Installing homebrew"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+# Install tools
+echo "# Install tools..."
+./install-tools
+
 # Install apps
 echo "# Install applications..."
 ./install-apps

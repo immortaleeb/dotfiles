@@ -8,4 +8,5 @@ brew install gradle
 brew install lnav
 brew install bashmarks
 brew install awscli
+brew install jq
 

@@ -2,6 +2,7 @@
 
 brew tap immortaleeb/tap
 
+brew install coreutils
 brew install tmux
 brew install ag
 brew install gradle
@@ -9,4 +10,5 @@ brew install lnav
 brew install bashmarks
 brew install awscli
 brew install jq
+brew install gradle
 

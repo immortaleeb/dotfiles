@@ -17,6 +17,8 @@
   cpa = cherry-pick --abort
   caa = commit -a --amend
   pf = push -f
+  s = stash
+  sp = stash pop
 [user]
 	name = immortaleeb
 	email = immortaleeb@gmail.com

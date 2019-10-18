@@ -9,6 +9,7 @@ brew cask install flycut
 # Office Tools
 brew cask install mailspring
 brew cask install joplin
+brew cask install libreoffice
 
 # Dev Tools
 brew cask install docker
@@ -19,6 +20,8 @@ brew cask install intellij-idea-ce
 brew cask install azure-data-studio
 brew cask install rocket-chat
 brew cask install tunnelblick
+brew cask install insomnia
+brew cask install yed
 
 # Secrets
 brew cask install keepassxc

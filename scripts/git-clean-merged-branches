@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+list_merged_branches() {
+  git log --oneline --format=%s --grep="^Merge" | sed 's/Merge\(d in\)*\( branch\)* '\''*"*\([^ '\''"]*\).*/\3/' | sort | uniq
+}
+
+merged_branches_file=$(mktemp)
+
+list_merged_branches > "${merged_branches_file}"
+
+git branch | while read -r local_branch; do
+  if fgrep -q "${local_branch}" "${merged_branches_file}"; then
+    echo "Removing local branch ${local_branch}..."
+    git branch -D "${local_branch}"
+  fi
+done
+

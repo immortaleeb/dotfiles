@@ -1,0 +1,117 @@
+#!/usr/bin/env bash
+
+PROJECTS_SCANPRO=~/Projects/Work/Onea/scanpro
+SCANPRO_DIR="${PROJECTS_SCANPRO}/onea-scanpro"
+
+if [ -z "${JBOSS_HOME}" ]; then
+  echo "No JBOSS_HOME found, please set the variable in your .bashrc file" >&2
+  exit 1
+fi
+
+JBOSS_DEPLOY="${JBOSS_HOME}/server/default/deploy"
+
+print_help() {
+  echo "Set a scanpro environment for deployment"
+  echo "Usage: $0 command [options]"
+  cat <<EOD
+Commands:
+  list  List all environments that can be set
+  set   Set a given environment to be deployed
+
+EOD
+}
+
+get_environment_type() {
+  local environment_name="$1"
+  echo "${environment_name%%-*}"
+}
+
+get_project_dir() {
+  local environment_type="$1"
+  echo "${PROJECTS_SCANPRO}/onea-scanpro-${environment_type}"
+}
+
+scanpro_list_environments() {
+  find "${JBOSS_DEPLOY}" -name "mssql-ds.*.xml" | sed 's/.*mssql-ds\.\(.*\)\.xml$/\1/'
+}
+
+scanpro_set_environment() {
+  environment_name="$1"
+  environment_type="$(get_environment_type ${environment_name})"
+
+  database_config_file="${JBOSS_DEPLOY}/mssql-ds.${environment_name}.xml"
+
+  if [ ! -f "${database_config_file}" ]; then
+    echo "Database config file '${database_config_file}' for environment '${environment_name}' does not exist" >&2
+    exit 2
+  fi
+
+  project_dir="$(get_project_dir ${environment_type})"
+
+  if [ ! -d "${project_dir}" ]; then
+    echo "Project dir '${project_dir}' for environment '${environment_name}' not found" >&2
+    exit 2
+  fi
+
+  # Overwrite module to deploy
+  echo "Setting module directory to ${project_dir}..."
+  sed -i '' 's@^modulesToDeploy01=.*@modulesToDeploy01='"${project_dir}"'/@' "${SCANPRO_DIR}/build.properties"
+
+  # Copy database configuration
+  echo "Loading database config file ${database_config_file}..."
+  cp "${database_config_file}" "${JBOSS_DEPLOY}/mssql-ds.xml"
+}
+
+scanpro_build() {
+  pushd "${SCANPRO_DIR}"
+
+  ant deploy1
+  local retval=$?
+
+  popd
+
+  return ${retval}
+}
+
+scanpro_run() {
+  if [ "$1" = "-b" ]; then
+    shift
+
+    if scanpro_build; then
+      echo "BUILD success, STARTING jboss"
+
+      jboss_run "${@}"
+    else
+      echo "BUILD failed"
+    fi
+  else
+    jboss_run "${@}"
+  fi
+
+}
+
+jboss_run() {
+  jboss run "${@}"
+}
+
+command="$1"
+shift
+
+case "${command}" in
+  list|l)
+    scanpro_list_environments "${@}"
+    ;;
+  set|s)
+    scanpro_set_environment "${@}"
+    ;;
+  build|b)
+    scanpro_build "${@}"
+    ;;
+  run|r)
+    scanpro_run "${@}"
+    ;;
+  *)
+    print_help
+    ;;
+esac
+

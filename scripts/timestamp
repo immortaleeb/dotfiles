@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+generate_now() {
+  gdate +%s%N | cut -b1-13
+}
+
+to_date() {
+  gdate -d @$(  echo "($1 + 500) / 1000" | bc)
+}
+
+if [ $# -eq 1 ]; then
+  to_date "$1"
+else
+  generate_now
+fi
+

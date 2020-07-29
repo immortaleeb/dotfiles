@@ -1,0 +1,139 @@
+#!/usr/bin/env bash
+
+if [ -z "${JBOSS_HOME}" ]; then
+  echo "No JBOSS_HOME found, please set the variable in your .bashrc file" >&2
+  exit 1
+fi
+
+if [ -z "${JBOSS_LOGS}" ]; then
+  JBOSS_LOGS="${JBOSS_HOME}/server/default/log"
+fi
+
+# Help
+
+print_help() {
+  command="$1"
+
+  case "$1" in
+    run)
+      cat <<EOD
+Run JBoss instance
+Usage: $0 run [-j]
+
+Flags:
+ -j    Run with JRebel
+
+EOD
+      ;;
+    clean)
+      cat <<EOD
+Clean the JBoss tmp and work folders
+Usage: $0 clean [-l]
+
+Flags:
+  -l    Also clean the log folder
+
+EOD
+      ;;
+    *)
+      print_common_help
+  esac
+}
+
+print_common_help() {
+  echo "Usage: $0 command [options]"
+  cat <<EOD
+Commands:
+  status  Prints the status of the current jboss instances
+  run     Runs a jboss instance
+  kill    Kills any running jboss instances
+  clean   Clean the tmp and work folders
+  logs    Tails the jboss log files
+
+EOD
+}
+
+# Commands
+jboss_current_pid() {
+  ps -e | grep "org.jboss.Main" | grep -v "grep" | column 1
+}
+
+jboss_status() {
+  jboss_pid=$(jboss_current_pid)
+
+  if [ ! -z "${jboss_pid}" ]; then
+    echo "JBoss is RUNNING"
+    echo "PID: ${jboss_pid}"
+  else
+    echo "JBoss is NOT running"
+  fi
+}
+
+jboss_run() {
+  if [ "$1" = "-j" ]; then
+    "${JBOSS_HOME}/bin/run-jrebel.sh"
+  else
+    "${JBOSS_HOME}/bin/run.sh"
+  fi
+}
+
+jboss_logs() {
+  lnav "${JBOSS_LOGS}"
+}
+
+jboss_kill() {
+  jboss_pid=$(jboss_current_pid)
+
+  if [ ! -z "${jboss_pid}" ]; then
+    if [ "$1" = "-f" -o "$1" = "-9" ]; then
+      echo "FORCE killing process with PID ${jboss_pid}"
+      kill -9 "${jboss_pid}"
+    else
+      echo "Killing process with PID ${jboss_pid}"
+      kill "${jboss_pid}"
+    fi
+  else
+    echo "No running jboss instances found"
+  fi
+}
+
+jboss_clean() {
+  echo "Cleaning tmp and work folders..."
+  rm -rf "${JBOSS_HOME}/tmp" >/dev/null 2>&1
+  rm -rf "${JBOSS_HOME}/work/*" >/dev/null 2>&1
+
+  if [ "$1" = "-l" ]; then
+    echo "Cleaning logs..."
+    rm -rf "${JBOSS_LOGS}"/*
+  fi
+}
+
+# Command parsing
+
+command="$1"
+shift
+
+case "${command}" in
+  status|s)
+    jboss_status "${@}"
+    ;;
+  run|r)
+    jboss_run "${@}"
+    ;;
+  kill|k)
+    jboss_kill "${@}"
+    ;;
+  clean|c)
+    jboss_clean "${@}"
+    ;;
+  logs|log|l)
+    jboss_logs "${@}"
+    ;;
+  help|h)
+    print_help "${@}"
+    ;;
+  *)
+    print_help
+    ;;
+esac
+

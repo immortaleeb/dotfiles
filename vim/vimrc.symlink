@@ -62,8 +62,8 @@ colorscheme Tomorrow-Night
 " highlight search results
 set hlsearch
 
-" enable line numbers
-set number
+" enable hybrid line numbers
+set number relativenumber
 
 " Show commands while being typed
 set showcmd

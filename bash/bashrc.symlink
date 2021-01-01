@@ -15,6 +15,8 @@ alias vi=vim
 # Linux/Mac specific stuff
 if [ "$(uname -s)" = "Darwin" ]; then # Mac
   source ~/.bashrc.mac
+elif [ "$(uname -s)" = "Linux" ]; then
+  source ~/.bashrc.linux
 fi
 
 # Work specific stuff

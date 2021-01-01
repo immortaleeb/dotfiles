@@ -27,4 +27,8 @@ export NVM_DIR="$HOME/.nvm"
 # Bash completion for git
 source ~/git-completion.bash
 
+# Load bashmarks
+[[ -s /usr/local/opt/bashmarks/libexec/bashmarks.sh ]] && source /usr/local/opt/bashmarks/libexec/bashmarks.sh
+[[ -s /usr/share/bashmarks/bashmarks.sh ]] && source /usr/share/bashmarks/bashmarks.sh
+
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

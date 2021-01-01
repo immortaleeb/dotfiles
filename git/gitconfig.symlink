@@ -19,6 +19,8 @@
   pf = push -f
   s = stash
   sp = stash pop
+  bb = bisect bad
+  bg = bisect good
 [user]
 	name = immortaleeb
 	email = immortaleeb@gmail.com

@@ -1,0 +1,71 @@
+#!/usr/bin/env bash
+set -e
+
+### Parse arguments
+if [ $# -ne 1 ]; then
+  echo "Error: Missing argument"
+  echo ""
+  echo "This script takes a backup of all git repositories found in the current directory."
+  echo "The repositories are saved as git bundles and copied to a target backup directory."
+  echo ""
+  echo "Usage: $0 /path/to/backup/dir"
+
+  exit 1
+fi
+
+BACKUP_DESTINATION="$1"
+
+if [ ! -d "${BACKUP_DESTINATION}" ]; then
+  echo "Error: Path '${BACKUP_DESTINATION}' does not exist!"
+  exit 2
+fi
+
+### Find repositories
+if [ ! -f .backup-repositories/repos.list ]; then
+  echo "Finding repositories in current directory..."
+  mkdir .backup-repositories
+  find . -type d -name '.git' > .backup-repositories/repos.list
+fi
+
+### Backup repositories
+for repo in $(cat .backup-repositories/repos.list); do
+
+  echo "> Backing up ${repo}..."
+
+  if [ ! -d "${repo}" ]; then
+    echo "Warning: The repository '${repo}' does no longer exist, was it removed? Skipping backup"
+  else
+    repo_path=$(dirname "${repo}" | sed 's@^\.\/@@')
+    repo_name=$(basename "${repo_path}")
+    repo_dir=$(dirname "${repo_path}")
+    backup_dir="${BACKUP_DESTINATION}/${repo_dir}"
+    bundle="${backup_dir}/${repo_name}.bundle"
+
+    pushd "${repo_path}" > /dev/null
+
+    if [ -f "${bundle}" ]; then
+      if git bundle verify "${bundle}" >/dev/null; then
+        echo "${bundle} already exists, skipping backup"
+      else
+        echo "Existing bundle is out of date, updating..."
+        rm "${bundle}"
+      fi
+    fi
+
+    if [ ! -f "${bundle}" ]; then
+      mkdir -p "${backup_dir}" > /dev/null
+
+      git checkout develop || git checkout master
+      git pull
+
+      git bundle create "${bundle}" --all
+
+    fi
+
+    popd > /dev/null
+  fi
+
+done
+
+rm -r .backup-repositories
+

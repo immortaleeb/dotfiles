@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+dock_add() {
+  if [ -d "$1" ]; then
+    dockutil --add "$1"
+  fi
+}
+
 echo "> Installing dockutil..."
 brew install dockutil
 
@@ -7,18 +13,20 @@ echo "> Removing all dock items..."
 dockutil --remove all
 
 echo "> Adding new items..."
-dockutil --add /Applications/Vivaldi.app
-dockutil --add /Applications/iTerm.app
-dockutil --add "/Applications/IntelliJ IDEA CE.app"
-dockutil --add /Applications/KeePassXC.app
-dockutil --add /Applications/Rocket.Chat.app
-dockutil --add /Applications/Mailspring.app
-dockutil --add "/Applications/Azure Data Studio.app"
-dockutil --add "/Applications/Sublime Text.app"
-dockutil --add /Applications/Fork.app
-dockutil --add /Applications
+dock_add "/Applications/Brave Browser.app"
+dock_add /Applications/iTerm.app
+dock_add "/Applications/IntelliJ IDEA CE.app"
+dock_add /Applications/KeePassXC.app
+dock_add /Applications/Mailspring.app
+dock_add "/Applications/Sublime Text.app"
+dock_add /Applications/Fork.app
+dock_add /Applications
 
 echo "> Manual actions"
-echo " * Turn hiding on (cmd + alt + D)"
-echo " * Disable _show recent applications in dock"
+cat <<EOD
+1. Turn hiding on (cmd + alt + D)
+2. Rightclick dock > Dock preferences
+  a. Change _Position on screen_ to _Left_
+  b. Uncheck _show recent applications in Dock_
+EOD
 

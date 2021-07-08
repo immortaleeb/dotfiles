@@ -1,28 +1,26 @@
 #!/usr/bin/env bash
 
 # General
-brew cask install vivaldi
-brew cask install spectacle
-brew cask install flux
-brew cask install flycut
+brew install --cask brave-browser
+brew install --cask rectangle
+brew install --cask flux
+brew install --cask flycut
 
 # Office Tools
-brew cask install mailspring
-brew cask install joplin
-brew cask install libreoffice
+brew install --cask joplin
+# brew install --cask mailspring
+# brew install --cask libreoffice
 
 # Dev Tools
-brew cask install docker
-brew cask install iterm2
-brew cask install sublime-text
-brew cask install fork
-brew cask install intellij-idea-ce
-brew cask install azure-data-studio
-brew cask install rocket-chat
-brew cask install tunnelblick
-brew cask install insomnia
-brew cask install yed
+brew install --cask docker
+brew install --cask iterm2
+brew install --cask sublime-text
+brew install --cask fork
+brew install --cask postman
+# brew install --cask intellij-idea-ce
+# brew install --cask tunnelblick
+# brew install --cask yed
 
 # Secrets
-brew cask install keepassxc
+brew install --cask keepassxc
 

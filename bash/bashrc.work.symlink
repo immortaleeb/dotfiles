@@ -1,4 +1,0 @@
-# Configuration specific for my current job
-
-export JBOSS_HOME=~/Servers/jboss/jboss-6.1.0.Final
-

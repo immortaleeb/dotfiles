@@ -33,5 +33,5 @@
 	rebase = true
 [push]
 	default = simple
-[includeIf "gitdir:~/Projects/Work/"]
-    path = ~/.gitconfig.work
+[include]
+  path=~/.gitconfig.private

@@ -1,19 +1,19 @@
 #!/bin/bash
 
-KARABINER_PRIVATE_XML_LOCATION=$HOME/Library/Application\ Support/Karabiner
+KARABINER_CONFIG_LOCATION=$HOME/.config/karabiner
 
 if [ "$(uname -s)" = "Darwin" ]; then # Mac
-  if [ -d "$KARABINER_PRIVATE_XML_LOCATION" ]; then
+  if [ -d "$KARABINER_CONFIG_LOCATION" ]; then
     # backup the existing private.xml file if it exists
-    if [ -f "$KARABINER_PRIVATE_XML_LOCATION/private.xml" ]; then
-      echo "An existing Karabiner private.xml was found, renaming it to private.xml.bak"
-      mv "$KARABINER_PRIVATE_XML_LOCATION/private.xml" "$KARABINER_PRIVATE_XML_LOCATION/private.xml.bak"
+    if [ -f "$KARABINER_CONFIG_LOCATION/karabiner.json" ]; then
+      echo "An existing karabiner.json was found, renaming it to karabiner.json.bak"
+      mv "$KARABINER_CONFIG_LOCATION/karabiner.json" "$KARABINER_CONFIG_LOCATION/karabiner.json.bak"
     fi
 
-    # Symlink the new private.xml
-    echo "Symlinking Karabiner's private.xml file"
-    ln -s "$PWD/karabiner/private.xml" "$KARABINER_PRIVATE_XML_LOCATION/private.xml"
+    # Symlink the new karabiner.json
+    echo "Symlinking karabiner.json in dotfiles"
+    ln -s "$PWD/karabiner/karabiner.json" "$KARABINER_CONFIG_LOCATION/karabiner.json"
   else
-    echo "No Karabiner folder found in Application Support"
+    echo "No Karabiner config folder found"
   fi
 fi

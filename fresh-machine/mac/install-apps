@@ -5,6 +5,7 @@ brew install --cask brave-browser
 brew install --cask rectangle
 brew install --cask flux
 brew install --cask flycut
+brew install --cask karabiner-elements
 
 # Office Tools
 brew install --cask joplin

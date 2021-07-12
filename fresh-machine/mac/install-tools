@@ -10,4 +10,5 @@ brew install lnav
 brew install bashmarks
 brew install awscli
 brew install jq
+brew install docker-compose
 

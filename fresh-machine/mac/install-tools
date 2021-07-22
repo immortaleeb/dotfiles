@@ -11,5 +11,6 @@ brew install \
   bashmarks \
   awscli \
   jq \
-  docker-compose
+  docker-compose \
+  pyenv
 

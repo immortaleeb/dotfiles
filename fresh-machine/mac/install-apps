@@ -6,7 +6,9 @@ brew install --cask \
   rectangle \
   flux \
   flycut \
-  karabiner-elements
+  karabiner-elements \
+  android-file-transfer \
+  flameshot
 
 # Office Tools
 brew install --cask \
@@ -21,7 +23,8 @@ brew install --cask \
   iterm2 \
   sublime-text \
   fork \
-  postman
+  postman \
+  meld
 # brew install --cask intellij-idea-ce
 # brew install --cask tunnelblick
 # brew install --cask yed

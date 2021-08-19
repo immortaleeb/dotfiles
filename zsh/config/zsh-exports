@@ -1,5 +1,7 @@
 export EDTIOR=vim
 
+path=("${HOME}/scripts" $path)
+
 # OS-specific exports
 case "$(uname -s)" in
 
@@ -19,3 +21,6 @@ CYGWIN* | MINGW32* | MSYS* | MINGW*)
 	# Unknown
 	;;
 esac
+
+export PATH
+

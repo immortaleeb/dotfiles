@@ -1,0 +1,16 @@
+source "${ZDOTDIR}/zsh-functions"
+
+# tab completion
+autoload -Uz compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+_comp_options+=(globdots) # include hidden files
+
+zsh_add_file "zsh-prompt"
+zsh_add_file "zsh-vim-mode"
+zsh_add_file "zsh-aliases"
+zsh_add_file "zsh-exports"
+
+zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
+# zsh_add_completion "zsh-users/zsh-completions"
+

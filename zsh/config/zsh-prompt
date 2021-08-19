@@ -1,0 +1,18 @@
+# autoload vcs and colors
+autoload -Uz vcs_info
+autoload -U colors && colors
+
+# enable only git
+zstyle ':vcs_info:*' enable git
+
+# setup a hook that runs before every prompt.
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+setopt prompt_subst
+
+# only show the branch name
+zstyle ':vcs_info:git:*' formats " %{$fg[blue]%}(%{$fg[magenta]%}%b%{$fg[blue]%})"
+
+# format prompt with user, hostname, current directory and vcs info
+PROMPT="%{$fg[blue]%}%n%{$fg[white]%}@%{$fg[green]%}%m%{$fg[white]%}:%{$fg[cyan]%}%c%{$reset_color%}"
+PROMPT+="\$vcs_info_msg_0_ "

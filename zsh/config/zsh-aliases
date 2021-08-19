@@ -1,0 +1,32 @@
+alias vi=vim
+
+# OS-specific aliases
+case "$(uname -s)" in
+
+Darwin)
+	# Mac
+	alias ls='ls -GF'
+
+  alias hibernate='sudo pmset -a hibernatemode 25'
+  alias regularsleep='sudo pmset -a hibernatemode 0'
+  alias safesleep='sudo pmset -a hibernatemode 3'
+  alias smartsleep='sudo pmset -a hibernatemode 2'
+
+  alias sublime='open -a Sublime\ Text'
+  alias meld='open -W -a Meld'
+  alias code='open -a "Visual Studio Code"'
+  alias brewit='brew update && brew update && brew upgrade --ignore-pinned && brew cleanup && brew doctor'
+	;;
+
+Linux)
+	alias ls='ls --color=auto'
+  alias open=xdg-open
+	;;
+
+CYGWIN* | MINGW32* | MSYS* | MINGW*)
+	# Windows
+	;;
+*)
+	# Unknown
+	;;
+esac

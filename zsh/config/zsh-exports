@@ -1,0 +1,21 @@
+export EDTIOR=vim
+
+# OS-specific exports
+case "$(uname -s)" in
+
+Darwin)
+	# Mac
+  export JAVA_HOME="$(/usr/libexec/java_home -v16)"
+  export ANDROID_HOME="$HOME/Library/Android/sdk"
+	;;
+
+Linux)
+	;;
+
+CYGWIN* | MINGW32* | MSYS* | MINGW*)
+	# Windows
+	;;
+*)
+	# Unknown
+	;;
+esac

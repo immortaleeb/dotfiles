@@ -1,0 +1,10 @@
+# projects
+export DIR_projects="$HOME/Projects"
+export DIR_personal="${DIR_projects}/Personal"
+export DIR_dotfiles="${DIR_personal}/dotfiles"
+export DIR_pdotfiles="${DIR_personal}/private-dotfiles"
+
+# common dirs
+export DIR_documents="$HOME/Documents"
+export DIR_downloads="$HOME/Downloads"
+

@@ -10,7 +10,12 @@ zsh_add_file "zsh-prompt"
 zsh_add_file "zsh-vim-mode"
 zsh_add_file "zsh-aliases"
 zsh_add_file "zsh-exports"
+zsh_add_file "zsh-bashmarks"
 
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 # zsh_add_completion "zsh-users/zsh-completions"
+
+# load bashmarks
+source_file "/usr/local/opt/bashmarks/libexec/bashmarks.sh"
+source_file "/usr/share/bashmarks/bashmarks.sh"
 

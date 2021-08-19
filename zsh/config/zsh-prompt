@@ -14,5 +14,5 @@ setopt prompt_subst
 zstyle ':vcs_info:git:*' formats " %{$fg[blue]%}(%{$fg[magenta]%}%b%{$fg[blue]%})"
 
 # format prompt with user, hostname, current directory and vcs info
-PROMPT="%{$fg[blue]%}%n%{$fg[white]%}@%{$fg[green]%}%m%{$fg[white]%}:%{$fg[cyan]%}%c%{$reset_color%}"
+PROMPT="%{$fg[blue]%}%n%{$fg[white]%}@%{$fg[green]%}%m%{$fg[white]%}:%{$fg[yellow]%}%c%{$reset_color%}"
 PROMPT+="\$vcs_info_msg_0_ "

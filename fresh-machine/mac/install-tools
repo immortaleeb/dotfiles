@@ -12,5 +12,6 @@ brew install \
   awscli \
   jq \
   docker-compose \
-  pyenv
+  pyenv \
+  tmuxp
 

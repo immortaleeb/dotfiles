@@ -5,6 +5,7 @@ autoload -Uz compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 _comp_options+=(globdots) # include hidden files
+compinit
 
 zsh_add_file "zsh-prompt"
 # zsh_add_file "zsh-vim-mode"

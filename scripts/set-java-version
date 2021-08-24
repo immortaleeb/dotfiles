@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+version="$1"
+
+if [ "${version}" -lt 9 ]; then
+  version="1.${version}"
+fi
+
+export JAVA_HOME=$(/usr/libexec/java_home -v"${version}")
+

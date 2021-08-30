@@ -7,11 +7,15 @@ zmodload zsh/complist
 _comp_options+=(globdots) # include hidden files
 compinit
 
+# fix shortcuts in tmux
+bindkey -e
+
 zsh_add_file "zsh-prompt"
 # zsh_add_file "zsh-vim-mode"
 zsh_add_file "zsh-aliases"
 zsh_add_file "zsh-exports"
 zsh_add_file "zsh-bashmarks"
+zsh_add_file "zsh-nvm"
 zsh_add_file "zsh-work"
 
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"

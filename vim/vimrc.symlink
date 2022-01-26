@@ -59,6 +59,9 @@ set shiftwidth=2
 set background=dark
 colorscheme Tomorrow-Night
 
+" set background=light
+" colorscheme Tomorrow
+
 " highlight search results
 set hlsearch
 

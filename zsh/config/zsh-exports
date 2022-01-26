@@ -7,7 +7,7 @@ case "$(uname -s)" in
 
 Darwin)
 	# Mac
-  export JAVA_HOME="$(/usr/libexec/java_home -v16)"
+  export JAVA_HOME="$(/usr/libexec/java_home -v17)"
   export ANDROID_HOME="$HOME/Library/Android/sdk"
 	;;
 

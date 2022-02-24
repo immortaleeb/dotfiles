@@ -1,4 +1,10 @@
+papertrail_lnav() {
+  pt --color off "${@}" | lnav
+}
+
 # Linux specific aliases
 alias open=xdg-open
 alias pbcopy='xclip -selection clipboard'
+alias pt=/home/enver/.local/share/gem/ruby/3.0.0/bin/papertrail
+alias ptl=papertrail_lnav
 

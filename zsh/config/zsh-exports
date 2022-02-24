@@ -24,3 +24,6 @@ esac
 
 export PATH
 
+# Hint tmux that it should use zsh
+export SHELL=$(which zsh)
+

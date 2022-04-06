@@ -14,5 +14,6 @@ brew install \
   docker-compose \
   pyenv \
   tmuxp \
-  watch
+  watch \
+  asdf
 

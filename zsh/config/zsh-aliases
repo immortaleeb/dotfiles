@@ -21,6 +21,7 @@ Darwin)
 Linux)
 	alias ls='ls --color=auto'
   alias open=xdg-open
+  alias pbcopy='xclip -selection clipboard'
 	;;
 
 CYGWIN* | MINGW32* | MSYS* | MINGW*)

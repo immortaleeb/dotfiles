@@ -1,5 +1,10 @@
 source "${ZDOTDIR}/zsh-functions"
 
+# homebrew tab completion
+if type brew &>/dev/null; then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+fi
+
 # tab completion
 autoload -Uz compinit
 zstyle ':completion:*' menu select

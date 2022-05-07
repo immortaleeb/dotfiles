@@ -1,4 +1,5 @@
 alias vi=vim
+alias tf=terraform
 
 # OS-specific aliases
 case "$(uname -s)" in

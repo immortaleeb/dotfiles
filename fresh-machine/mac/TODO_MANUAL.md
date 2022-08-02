@@ -17,6 +17,7 @@ Go to Apple menu > System Preferences > Keyboard and
 2. Set _Delay until repeat_ to _short_
 3. Set _Touch Bar shows_ to _F1, F2, etc. keys_ and uncheck _Show control strip_
 4. Check _Use F1, F2, etc. keys as standard keys on external keyboards_
+5. Go to _Dictation_ tab and set _Shortcut_ to _Off_
 
 ## Set Brave as a default browser
 

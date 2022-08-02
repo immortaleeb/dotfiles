@@ -17,6 +17,7 @@ Darwin)
   alias meld='open -W -a Meld'
   alias code='open -a "Visual Studio Code"'
   alias brewit='brew update && brew update && brew upgrade --ignore-pinned && brew cleanup && brew doctor'
+  alias idea='open -a "IntelliJ IDEA"'
 	;;
 
 Linux)

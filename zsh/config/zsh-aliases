@@ -1,5 +1,6 @@
 alias vi=vim
 alias tf=terraform
+alias pbquote='pbpaste | quote | pbcopy'
 
 # OS-specific aliases
 case "$(uname -s)" in

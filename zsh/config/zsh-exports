@@ -1,6 +1,5 @@
 export EDTIOR=vim
 
-path=("${HOME}/scripts" $path)
 
 # OS-specific exports
 case "$(uname -s)" in
@@ -9,6 +8,7 @@ Darwin)
 	# Mac
   export JAVA_HOME="$(/usr/libexec/java_home -v17)"
   export ANDROID_HOME="$HOME/Library/Android/sdk"
+  path=("/usr/local/sbin" $path)
 	;;
 
 Linux)
@@ -21,6 +21,8 @@ CYGWIN* | MINGW32* | MSYS* | MINGW*)
 	# Unknown
 	;;
 esac
+
+path=("${HOME}/scripts" $path)
 
 export PATH
 

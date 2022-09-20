@@ -12,7 +12,6 @@ brew install \
   bashmarks \
   awscli \
   jq \
-  docker-compose \
   pyenv \
   tmuxp \
   watch \

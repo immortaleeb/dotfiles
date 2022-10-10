@@ -1,10 +1,13 @@
 alias vi=vim
-alias pbquote='pbpaste | quote | pbcopy'
 alias pbsort='pbpaste | sort | pbcopy'
 alias tf=terraform
 alias tfi='terraform init'
 alias tfa='terraform apply'
 alias dco='docker compose'
+
+function pbquote() {
+  pbpaste | quote "${@}" | pbcopy
+}
 
 # OS-specific aliases
 case "$(uname -s)" in

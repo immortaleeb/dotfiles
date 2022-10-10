@@ -1,4 +1,33 @@
 #!/usr/bin/env bash
 
-sed 's/^/"/;s/$/",/'
+regex_match=0
+
+print_help() {
+  echo "Usage: $0 [-r]"
+  echo "Quotes a list of input values for usage in an array"
+  exit 1
+}
+
+parse_arguments() {
+  if [ $# -ge 1 ]; then
+    if [ "$1" == "-r" ]; then
+      regex_match=1
+    fi
+
+    if [ "$1" == "-h" ]; then
+      print_help
+    fi
+  fi
+}
+
+do_quote() {
+  if [ ${regex_match} -eq 1 ]; then
+    sed 's|^|/\^|;s|$|\$\/i,|'
+  else
+    sed 's/^/"/;s/$/",/'
+  fi
+}
+
+parse_arguments "${@}"
+do_quote
 

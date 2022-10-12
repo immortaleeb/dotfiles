@@ -7,6 +7,7 @@ alias tfp='terraform plan'
 alias tfia='terraform init && terraform apply'
 alias tfip='terraform init && terraform plan'
 alias dco='docker compose'
+alias cdr='cd $(git rev-parse --show-toplevel)' # cd to git root dir
 
 function pbquote() {
   pbpaste | quote "${@}" | pbcopy

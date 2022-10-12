@@ -3,6 +3,9 @@ alias pbsort='pbpaste | sort | pbcopy'
 alias tf=terraform
 alias tfi='terraform init'
 alias tfa='terraform apply'
+alias tfp='terraform plan'
+alias tfia='terraform init && terraform apply'
+alias tfip='terraform init && terraform plan'
 alias dco='docker compose'
 
 function pbquote() {

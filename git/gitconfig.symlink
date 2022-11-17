@@ -23,7 +23,7 @@
   bg = bisect good
 [user]
 	name = immortaleeb
-	email = immortaleeb@gmail.com
+	email = 1183783+immortaleeb@users.noreply.github.com
 [merge]
   tool = meld
   ff = no
@@ -35,3 +35,4 @@
 	default = simple
 [include]
   path=~/.gitconfig.private
+

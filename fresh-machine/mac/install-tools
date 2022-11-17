@@ -4,6 +4,7 @@ brew tap immortaleeb/tap
 brew tap heroku/brew
 
 brew install \
+  git \
   coreutils \
   tmux \
   ag \

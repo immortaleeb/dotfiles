@@ -1,0 +1,4 @@
+# Setup pyenv shims
+if type pyenv 2> /dev/null >&2; then
+  PATH=~/.pyenv/shims:$PATH
+fi

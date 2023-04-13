@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 regex_match=0
+single_quote=0
 
 print_help() {
   echo "Usage: $0 [-r]"
@@ -12,6 +13,8 @@ parse_arguments() {
   if [ $# -ge 1 ]; then
     if [ "$1" == "-r" ]; then
       regex_match=1
+    elif [ "$1" == "-s" ]; then
+      single_quote=1
     fi
 
     if [ "$1" == "-h" ]; then
@@ -23,6 +26,8 @@ parse_arguments() {
 do_quote() {
   if [ ${regex_match} -eq 1 ]; then
     sed 's|^|/\^|;s|$|\$\/i,|'
+  elif [ ${single_quote} -eq 1 ]; then
+    sed "s/^/'/;s/$/',/"
   else
     sed 's/^/"/;s/$/",/'
   fi

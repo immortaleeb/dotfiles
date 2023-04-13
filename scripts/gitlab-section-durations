@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Parses the duration of each section in a gitlab log file
+# Usage: cat log-file | gitlab-section-durations
+
+egrep '(section_start|section_end)' | sed 's/.*section_/section_/' | sed 'N;s/\n/:/' | awk 'BEGIN {FS=":"} ; { print $3, ($5 - $2)"s" }'
+

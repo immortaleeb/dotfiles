@@ -32,3 +32,6 @@ source_file "/usr/local/opt/bashmarks/libexec/bashmarks.sh"
 source_file "/usr/share/bashmarks/bashmarks.sh"
 source_file "/usr/local/opt/asdf/libexec/asdf.sh"
 
+# load secrets
+load_env_file ".secrets.env"
+

@@ -8,7 +8,8 @@ brew install --cask \
   flycut \
   karabiner-elements \
   android-file-transfer \
-  flameshot
+  flameshot \
+  the-unarchiver
 
 # Office Tools
 brew install --cask \

@@ -21,6 +21,7 @@
   sp = stash pop
   bb = bisect bad
   bg = bisect good
+  rdir = rev-parse --show-toplevel
 [user]
 	name = immortaleeb
 	email = 1183783+immortaleeb@users.noreply.github.com

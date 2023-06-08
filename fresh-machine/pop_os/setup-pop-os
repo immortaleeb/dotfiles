@@ -4,12 +4,12 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 "${SCRIPT_DIR}/install-tools"
 
-chsh -s /bin/zsh # Set default shell
+# Set default shell
+chsh -s /bin/zsh $USER
 
 # docker config
 sudo groupadd docker
 sudo usermod -aG docker $USER
-newgrp docker
 
 
 "${SCRIPT_DIR}/customize-desktop"

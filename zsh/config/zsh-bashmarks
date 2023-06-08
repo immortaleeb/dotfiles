@@ -1,3 +1,7 @@
+if [ -f ~/.local/bin/bashmarks.sh ]; then
+  source ~/.local/bin/bashmarks.sh
+fi
+
 # projects
 export DIR_projects="$HOME/Projects"
 export DIR_personal="${DIR_projects}/Personal"

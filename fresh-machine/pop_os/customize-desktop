@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# use one of the following commands to get an overview of the current settings:
+# dconf dump / > dconf-settings.ini
+# gsettings list-recusively > gsettings.ini
+
+gsettings set org.gnome.mutter edge-tiling true
+
+gsettings set org.gnome.shell.extensions.pop-shell gap-inner 0
+gsettings set org.gnome.shell.extensions.pop-shell gap-outer 0
+gsettings set org.gnome.shell.extensions.pop-shell show-title false
+gsettings set org.gnome.shell.extensions.pop-shell tile-by-default true
+

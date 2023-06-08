@@ -3,5 +3,20 @@
 if [ "$(uname -s)" = "Darwin" ]; then # Mac
   echo "Setting up fresh Mac..."
   ./fresh-machine/mac/setup-mac
+elif [ -f "/etc/os-release" ]; then
+  os_id=$(cat /etc/os-release | grep '^ID=' | sed 's/.*=//')
+  echo "OS id: $os_id"
+
+  case "$os_id" in
+  pop)
+    echo "Detected Pop! OS"
+    ./fresh-machine/pop_os/setup-pop-os
+    ;;
+  *)
+    echo "Unknown linux distribution with id '$os_id'"
+    ;; 
+  esac
+else
+  echo "Not setup scripts found for current OS"
 fi
 

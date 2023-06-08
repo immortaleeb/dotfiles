@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+# General
+sudo apt-get install -y \
+  flameshot
+
+# Office tools
+flatpak install flathub md.obsidian.Obsidian
+sudo apt-get install -y \
+  syncthing
+
+# Dev tools
+sudo apt-get install -y \
+  meld
+
+## jetbrains toolbox
+if [ ! -d /opt/jetbrains ]; then
+  workdir=$(mktemp -d)
+  curl -o $workdir/jetbrains-toolbox.tar.gz 'https://download-cdn.jetbrains.com/toolbox/jetbrains-toolbox-1.28.1.15219.tar.gz'
+  pushd /opt
+  sudo tar -xvzf $workdir/jetbrains-toolbox.tar.gz
+  sudo mv jetbrains-toolbox* jetbrains
+  popd
+fi
+
+# Secrets
+sudo apt-get install -y \
+  keepassxc
+
+# Multimedia
+sudo apt-get install -y \
+  vlc
+

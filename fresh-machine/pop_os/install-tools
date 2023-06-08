@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+sudo apt-get update
+
+# core tools
+sudo apt-get install -y \
+  zsh \
+  vim \
+  ca-certificates \
+  curl \
+  gnupg
+
+# other tools
+sudo apt-get install -y \
+  tmux \
+  silversearcher-ag \
+  gradle \
+  lnav \
+  awscli \
+  jq \
+  tmuxp \
+  docker \
+  xclip
+
+# docker (see https://docs.docker.com/engine/install/ubuntu/)
+if [ ! -f /etc/apt/keyrings/docker.gpg ]; then
+  sudo install -m 0755 -d /etc/apt/keyrings
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+  sudo chmod a+r /etc/apt/keyrings/docker.gpg
+  echo \
+      "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+        "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+          sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  sudo apt-get update
+fi
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+# bashmarks
+if [ ! -f ~/.local/bin/bashmarks.sh ]; then
+  workdir=$(mktemp -d)
+
+  pushd "$workdir"
+
+  git clone https://github.com/huyng/bashmarks
+  cd bashmarks
+  make install
+
+  popd
+fi
+

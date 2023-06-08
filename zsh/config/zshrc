@@ -22,7 +22,7 @@ zsh_add_file "zsh-exports"
 zsh_add_file "zsh-bashmarks"
 zsh_add_file "zsh-nvm"
 zsh_add_file "zsh-pyenv"
-zsh_add_file "zsh-work"
+zsh_add_file "zsh-private"
 
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 # zsh_add_completion "zsh-users/zsh-completions"

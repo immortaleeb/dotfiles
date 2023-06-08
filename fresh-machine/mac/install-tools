@@ -3,9 +3,14 @@
 brew tap immortaleeb/tap
 brew tap heroku/brew
 
+# core tools
 brew install \
   git \
   coreutils \
+  watch
+
+# other tools
+brew install \
   tmux \
   ag \
   gradle \
@@ -15,7 +20,6 @@ brew install \
   jq \
   pyenv \
   tmuxp \
-  watch \
   asdf \
   heroku
 

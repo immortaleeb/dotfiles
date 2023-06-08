@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 #
 # Recursively calls all setup.sh scripts in the subdirectories
 #  of this directory.

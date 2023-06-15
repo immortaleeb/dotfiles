@@ -8,7 +8,8 @@ sudo apt-get install -y \
   vim \
   ca-certificates \
   curl \
-  gnupg
+  gnupg \
+  libssl-dev
 
 # other tools
 sudo apt-get install -y \
@@ -47,4 +48,8 @@ if [ ! -f ~/.local/bin/bashmarks.sh ]; then
 
   popd
 fi
+
+
+# pyenv (see https://github.com/pyenv/pyenv#automatic-installer)
+command -v pyenv >/dev/null || curl https://pyenv.run | bash
 

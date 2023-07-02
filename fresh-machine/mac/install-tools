@@ -21,5 +21,6 @@ brew install \
   pyenv \
   tmuxp \
   asdf \
-  heroku
+  heroku \
+  tree
 

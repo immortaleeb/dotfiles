@@ -24,6 +24,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'vim-scripts/tComment'
 " Highlight trailing whitespace
 Plug 'bronson/vim-trailing-whitespace'
+" COC (needed for LSP support)
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 

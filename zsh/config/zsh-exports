@@ -1,4 +1,4 @@
-export EDTIOR=vim
+export EDITOR=vim
 
 
 # OS-specific exports

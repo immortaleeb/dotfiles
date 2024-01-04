@@ -25,7 +25,7 @@ parse_arguments() {
 
 do_quote() {
   if [ ${regex_match} -eq 1 ]; then
-    sed 's|^|/\^|;s|$|\$\/i,|'
+    sed 's|\+|\\+|g;s|^|/\^|;s|$|\$\/i,|'
   elif [ ${single_quote} -eq 1 ]; then
     sed "s/^/'/;s/$/',/"
   else

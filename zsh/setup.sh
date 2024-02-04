@@ -1,4 +1,12 @@
 #!/usr/bin/env bash
 
-ln -s "$PWD/zsh/config" "${HOME}/.config/zsh"
+ZDOTDIR="${HOME}/.config/zsh"
+
+for file in $PWD/zsh/config/*; do
+  filename="$(basename -- "$file")"
+  echo $filename
+  ln -s "$file" "${ZDOTDIR}/${filename}"
+done
+
+ln -s "$PWD/zsh/config/.zshrc" "${ZDOTDIR}/.zshrc"
 

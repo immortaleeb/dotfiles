@@ -1,5 +1,7 @@
 if [ -f ~/.local/bin/bashmarks.sh ]; then
   source ~/.local/bin/bashmarks.sh
+elif [ -f /opt/homebrew/opt/bashmarks/libexec/bashmarks.sh ]; then
+  source /opt/homebrew/opt/bashmarks/libexec/bashmarks.sh
 fi
 
 # projects

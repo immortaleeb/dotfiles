@@ -15,6 +15,10 @@ set -g mouse on
 # prefx + r to reload config
 bind r source-file ~/.tmux.conf
 
+# Open panes in current directory
+bind '"' split-window -v -c "#{pane_current_path}"
+bind % split-window -v -c "#{pane_current_path}"
+
 # Tomorrow theme
 source-file ~/.tmux/tomorrow-night.tmux
 

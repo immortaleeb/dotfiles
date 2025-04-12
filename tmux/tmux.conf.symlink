@@ -12,6 +12,9 @@ bind-key l select-pane -R
 # enable mouse mode
 set -g mouse on
 
+# increase buffer size
+set-option -g history-limit 50000
+
 # prefx + r to reload config
 bind r source-file ~/.tmux.conf
 

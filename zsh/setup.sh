@@ -2,6 +2,7 @@
 
 ZDOTDIR="${HOME}/.config/zsh"
 
+mkdir -p $ZDOTDIR
 for file in $PWD/zsh/config/*; do
   filename="$(basename -- "$file")"
   echo $filename
